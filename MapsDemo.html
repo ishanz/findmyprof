@@ -5,9 +5,10 @@
     <style type="text/css">
       html { height: 100% }
       body { height: 100%; margin: 0; padding: 0; background: #CCCCCC; }
-	  div#container {height: 100%}
-	  div#title {text-align: center;}
-      div#map-canvas { height: 50%; width: 50%; border:2px solid; border-radius:25px; margin-left:25%; margin-top:250px;}
+	  div#container {height: 100%; text-align: center; float:top;}
+	  div#title{ font-size:25px;}
+	  input#professor { height:50px; width: 35%; font-size:25px; border:2px solid; border-radius:5px; }
+      div#map-canvas { height: 65%; width: 50%; border:2px solid; border-radius:25px; margin-left:25%; margin-top:50px;}
     </style>
     <script type="text/javascript"
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCKQHcshXFHbzDF1MDXA3DAgUM9SWCulRA&sensor=true">
@@ -28,6 +29,19 @@
 		marker.setMap(map);
       }
       google.maps.event.addDomListener(window, 'load', initialize);
+	  
+	  //deprecated...
+		function processForm(form) {
+			//processes information from the form and does something
+			var userInput = form.userInput.value;
+			alert(userInput + " was your string.");
+		}
+
+		function getString(str) {
+			//called from the form: prompts with newly inputted string from user
+			alert(str);
+		}
+
     </script>
   </head>
   <body>
@@ -35,6 +49,12 @@
 		<div id="title">
 			<h1>Faculty Search</h1>
 		</div>
+		<form method="search">
+			<div id="textfield">
+				<input id="professor" value="" onchange="getString(this.value);"
+				onkeyup="this.onchange();" onpaste="this.onchange();" oninput="this.onchange();" placeholder="Search for a professor">
+			</div>
+		</form>
 		<div id="map-canvas"/>
 	</div>
   </body>
