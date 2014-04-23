@@ -4,8 +4,10 @@
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
     <style type="text/css">
       html { height: 100% }
-      body { height: 100%; margin: 0; padding: 0 }
-      #map-canvas { height: 100% }
+      body { height: 100%; margin: 0; padding: 0; background: #CCCCCC; }
+	  div#container {height: 100%}
+	  div#title {text-align: center;}
+      div#map-canvas { height: 50%; width: 50%; border:2px solid; border-radius:25px; margin-left:25%; margin-top:250px;}
     </style>
     <script type="text/javascript"
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCKQHcshXFHbzDF1MDXA3DAgUM9SWCulRA&sensor=true">
@@ -13,16 +15,27 @@
     <script type="text/javascript">
       function initialize() {
         var mapOptions = {
-          center: new google.maps.LatLng(-34.397, 150.644),
-          zoom: 8
+          center: new google.maps.LatLng(38.033499, -78.508964),
+          zoom: 16
         };
         var map = new google.maps.Map(document.getElementById("map-canvas"),
             mapOptions);
+			
+		var marker = new google.maps.Marker({
+			position: new google.maps.LatLng(38.031628, -78.510946),
+			title:"Hello World!"
+		});
+		marker.setMap(map);
       }
       google.maps.event.addDomListener(window, 'load', initialize);
     </script>
   </head>
   <body>
-    <div id="map-canvas"/>
+	<div id="container"/>
+		<div id="title">
+			<h1>Faculty Search</h1>
+		</div>
+		<div id="map-canvas"/>
+	</div>
   </body>
 </html>
