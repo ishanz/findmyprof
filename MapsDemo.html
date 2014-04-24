@@ -3,12 +3,19 @@
   <head>
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
     <style type="text/css">
-      html { height: 100% }
-      body { height: 100%; margin: 0; padding: 0; background: #CCCCCC; }
+      html { height: 100%; 
+	  background: url(UVA_Rotunda.jpg) no-repeat center center fixed; 
+	  -webkit-background-size: cover;
+	  -moz-background-size: cover;
+	  -o-background-size: cover;
+	  background-size: cover;
+	  }
+      body { height: 100%; margin: 0; padding: 0; }
 	  div#container {height: 100%; text-align: center; float:top;}
 	  div#title{ font-size:25px;}
-	  input#professor { height:50px; width: 35%; font-size:25px; border:2px solid; border-radius:5px; }
+	  input#professor { height:50px; width: 55%; font-size:25px; border:2px solid; border-radius:5px; }
       div#map-canvas { height: 65%; width: 50%; border:2px solid; border-radius:25px; margin-left:25%; margin-top:50px;}
+		
     </style>
     <script type="text/javascript"
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCKQHcshXFHbzDF1MDXA3DAgUM9SWCulRA&sensor=true">
@@ -47,15 +54,17 @@
   <body>
 	<div id="container"/>
 		<div id="title">
-			<h1>Faculty Search</h1>
+			<h1>University of Virginia Faculty Search</h1>
 		</div>
 		<form method="search">
 			<div id="textfield">
 				<input id="professor" value="" onchange="getString(this.value);"
-				onkeyup="this.onchange();" onpaste="this.onchange();" oninput="this.onchange();" placeholder="Search for a professor">
+				onkeyup="this.onchange();" onpaste="this.onchange();" oninput="this.onchange();" placeholder="Search for a professor by last name, first name, or computing ID">
 			</div>
 		</form>
+		
 		<div id="map-canvas"/>
+		
 	</div>
   </body>
 </html>
