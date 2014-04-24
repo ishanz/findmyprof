@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Javascript AJAX Requests</title>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+	<script language="JavaScript">
+
+        var prof;
+
+        //makes a local request to /search/?term=query and returns the response contents
+        function getResponse(query) {
+
+            var xmlhttp = new XMLHttpRequest();
+            xmlhttp.open("GET", "/search/?term=" + query, false);
+            xmlhttp.send();
+            response = xmlhttp.responseText;
+            return response;
+
+        }
+
+        //tracks textbox usage, called every time text box changes
+		function getString(str) {
+            prof = str; //for global storage of the user's input
+            inputResponse = getResponse(prof); //send user input as request to get contents back
+            var w = window.open("", "MsgWindow", "width=500,height=500"); //open a window...
+            w.document.write(inputResponse); //write the UVA People search contents to a window (temporary)
+		}
+
+	</script>
+</head>
+<body>
+	Enter a string.
+	<!--<input type="text" name="userInput" value="">
+	<input type="button" name="submit" value="Click" onClick="processForm(this.form)">-->
+	<input id="professor" value="" onchange="getString(this.value);"
+onkeyup="this.onchange();" onpaste="this.onchange();" oninput="this.onchange();"/>
+
+    <!-- Testing Javascript requests
+      -- <input type="button" name="submit" value="Request" onClick="printResponse()">
+      -->
+
+</body>
+</html>
