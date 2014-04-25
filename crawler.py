@@ -1,12 +1,12 @@
 __author__ = 'Dan'
 
-from sample_input import sample_html
+# from sample_input import sample_html
 from bs4 import BeautifulSoup
 import urllib2
 import requests
 import json
 
-soup = BeautifulSoup(sample_html)
+# soup = BeautifulSoup(sample_html)
 
 
 def get_faculty(soup_input):
@@ -92,7 +92,7 @@ def process_search(search_entry):
     soup3 = BeautifulSoup(search_entry)
     check = soup3.find('br').find('h3') # check to see if result(s) is returned
 
-    data = []  # list for results
+    data = {}  # list for results
 
     if check is None:  # if result returned
         check2 = soup3.find('table').find('tr').get_text()  # check if specific result returned or list
@@ -102,18 +102,18 @@ def process_search(search_entry):
             html_list = get_html(links_list)
             for fac in html_list:
                 x = get_info(fac)
-                data.append(x)
+                data[x['name'].split('(')[0][:-1]] = x
                 # print x
-            return data
+            return json.dumps(data, indent=4)
         else:  # individual result returned
             x = get_info(search_entry)
-            data.append(x)
+            data[x['name'].split('(')[0][:-1]] = x
             # print x
-            return data
+            return json.dumps(data, indent=4)
     else:  # else there was error, none found, or too many entries
         # print None
-        return data
+        return json.dumps(data, indent=4)
 
-if __name__ == "__main__":
-    x = process_search(sample_html) #example if we search 'evans'
-    print json.dumps(x, indent=4)
+# if __name__ == "__main__":
+#     x = process_search(sample_html) #example if we search 'evans'
+#     print json.dumps(x, indent=4)
