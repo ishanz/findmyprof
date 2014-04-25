@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 import requests
+import crawler
 
 # Create your views here.
 def index(request):
@@ -12,7 +13,11 @@ def index(request):
 def search(request):
     if request.method == 'GET' and 'term' in request.GET:
         prof = request.GET['term']
-        r = requests.post("http://www.virginia.edu/cgi-local/ldapweb/", data={'whitepages': prof})
-        return HttpResponse(r.text)
+        if len(prof) < 3:  # if character count less than 3 return nothing
+            return HttpResponse([])
+        else:
+            r = requests.post("http://www.virginia.edu/cgi-local/ldapweb/", data={'whitepages': prof})
+            html_crawl = crawler.process_search(r.text)
+            return HttpResponse(html_crawl)
     else:
         return HttpResponse("Improper request.")
