@@ -4,6 +4,7 @@ from sample_input import sample_html
 from bs4 import BeautifulSoup
 import urllib2
 import requests
+import json
 
 soup = BeautifulSoup(sample_html)
 
@@ -32,7 +33,10 @@ def get_links(faculty_list):
 def get_html(links):
     """Get html code for a faculty web page"""
     faculty_htmls = []
-    for i in range(0, 4):  # Only process first 5 because processing all is too long
+    limit = 10;
+    if len(links) < 10:
+        limit = len(links)
+    for i in range(0, limit):  # Only process first 5 because processing all is too long
         usock = urllib2.urlopen(links[i])
         data = usock.read()
         usock.close()
@@ -42,8 +46,8 @@ def get_html(links):
 def get_info(html_file):
     """Get required info for each faculty"""
 
-    info = {'name': None, 'id': None, 'classification': None, 'title': None, 'dept': None, 'dept_code': None, 'email': None,
-            'phone': None, 'address': None}
+    info = {'name': None, 'id': None, 'classification': None, 'title': None, 'dept': None, 'dept_code': None,
+            'email': None, 'phone': None, 'address': None}
 
     soup2 = BeautifulSoup(html_file)
 
@@ -83,8 +87,9 @@ def post_request(search_entry):
 
 def process_search(search_entry):
     """Processes a search entry, this should be the only function that is called externally"""
-    html_page = post_request(search_entry) # get HTML for request
-    soup3 = BeautifulSoup(html_page) # make BeautifulSoup object
+    # html_page = post_request(search_entry) # get HTML for request
+    # soup3 = BeautifulSoup(html_page) # make BeautifulSoup object
+    soup3 = BeautifulSoup(search_entry)
     check = soup3.find('br').find('h3') # check to see if result(s) is returned
 
     data = []  # list for results
@@ -101,7 +106,7 @@ def process_search(search_entry):
                 # print x
             return data
         else:  # individual result returned
-            x = get_info(html_page)
+            x = get_info(search_entry)
             data.append(x)
             # print x
             return data
@@ -110,4 +115,5 @@ def process_search(search_entry):
         return data
 
 if __name__ == "__main__":
-    print process_search('evans') #example if we search 'evans'
+    x = process_search(sample_html) #example if we search 'evans'
+    print json.dumps(x, indent=4)
