@@ -32,19 +32,10 @@
 
         $.getJSON("http://localhost:8000/search/?term=ishan", function(data) {
             console.log(data); // use data as a generic object
-            arr = jQuery.parseJSON(JSON.stringify(data)); //parse the JSON into an array
-            console.log(arr["Ishan C. Williams"]);
-            for(var i=0;i<arr.length;i++){
-                var obj = arr[i];
-                for(var key in obj) {
-                    var attrName = key;
-                    console.log(attrName);
-                    var attrValue = obj[key];
-                    console.log(attrValue);
-                }
-    }
-
-
+            var ppl_list = []
+            for (var key in data){
+                console.log(data[key]["address"])
+            }
         });
 
 	</script>
