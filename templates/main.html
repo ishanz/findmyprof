@@ -5,7 +5,8 @@
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 	<script language="JavaScript">
 
-        var prof;
+        var prof; //stores the user's search term
+        var json; //stores the json data from user's request
 
         //makes a local request to /search/?term=query and returns the response contents
         function getResponse(query) {
@@ -22,12 +23,29 @@
 		function getString(str) {
             prof = str; //for global storage of the user's input
             //search is pointless if the string's less than three characters...
-            if(prof.length >= 3) {
+            if(prof.length >= 5) {
                 var inputResponse = getResponse(prof); //send user input as request to get contents back
                 var w = window.open("", "MsgWindow", "width=500,height=500"); //open a window...
                 w.document.write(inputResponse); //write the UVA People search contents to a window (temporary)
             }
 		}
+
+        $.getJSON("http://localhost:8000/search/?term=ishan", function(data) {
+            console.log(data); // use data as a generic object
+            arr = jQuery.parseJSON(JSON.stringify(data)); //parse the JSON into an array
+            console.log(arr["Ishan C. Williams"]);
+            for(var i=0;i<arr.length;i++){
+                var obj = arr[i];
+                for(var key in obj) {
+                    var attrName = key;
+                    console.log(attrName);
+                    var attrValue = obj[key];
+                    console.log(attrValue);
+                }
+    }
+
+
+        });
 
 	</script>
 </head>

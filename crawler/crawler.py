@@ -1,11 +1,10 @@
 __author__ = 'Dan'
 
-from sample_input import sample_html
 from bs4 import BeautifulSoup
 import urllib2
 import requests
+import json
 
-soup = BeautifulSoup(sample_html)
 
 
 def get_faculty(soup_input):
@@ -104,10 +103,10 @@ def process_search(search_entry):
             x = get_info(html_page)
             data.append(x)
             # print x
-            return data
+            return json.dumps(data)
     else:  # else there was error, none found, or too many entries
         # print None
-        return data
+        return json.dumps(data)
 
 if __name__ == "__main__":
     print process_search('evans') #example if we search 'evans'

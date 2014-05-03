@@ -13,7 +13,7 @@ def index(request):
 def search(request):
     if request.method == 'GET' and 'term' in request.GET:
         prof = request.GET['term']
-        if len(prof) < 3:  # if character count less than 3 return nothing
+        if len(prof) < 5:  # if character count less than 3 return nothing
             return HttpResponse([])
         else:
             r = requests.post("http://www.virginia.edu/cgi-local/ldapweb/", data={'whitepages': prof})
