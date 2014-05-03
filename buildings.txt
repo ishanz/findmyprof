@@ -1,43 +1,43 @@
-Rice Hall: 38.031604, -78.510867
-Small Hall: 38.032116, -78.511306
-Olsson Hall: 38.032040, -78.510609
-Mechanical Engineering Building: 38.032649, -78.511124
-Thornton Hall: 38.033236, -78.509745
-Materials Science Building: 38.033194, -78.510931
-Chemical Engineering Research Building: 38.033452, -78.510759
-Wilsdorf Hall: 38.033325, -78.511226
-Chemistry Building: 38.033540, -78.511719
-Gilmer Hall: 38.034149, -78.512859
-Physics Building: 38.034179, -78.510215
-Astronomy Building: 38.035636, -78.515412
-Ruffner Hall: 38.034631, -78.509368
-Bavaro Hall: 38.034661, -78.508832
-Clark Hall: 38.032871, -78.508014
-Halsey Hall: 38.033002, -78.506989
-Kerchof Hall: 38.032334, -78.508164
-Maury Hall: 38.033354, -78.506826
-Minor Hall: 38.033747, -78.506539
-Bryan Hall: 38.033270, -78.505941
-Cocke Hall: 38.033509, -78.505176
-Garrett Hall: 38.034111, -78.505452
-Old Cabell Hall: 38.032761, -78.504904
-New Cabell Hall: 38.032541, -78.505019
-Nau Hall: 38.031734, -78.505048
-Gibson Hall: 38.031322, -78.505102
-Rouss and Robertson Hall: 38.032792, -78.503691
-Wilson Hall: 38.032439, -78.503949
-Randall Hall: 38.033291, -78.503311
-Levering Hall: 38.033623, -78.502978
-Monroe Hall: 38.034751, -78.506264
-Brooks Hall: 38.035770, -78.502108
-Cobb Hall: 38.032442, -78.503028
-Varsity Hall: 38.032976, -78.502921
-McKim Hall: 38.032681, -78.502003
-McLeod Hall: 38.030832, -78.501714
-Jordan Hall: 38.032119, -78.500351
-Fayerweather Hall: 38.037983, -78.503005
-Ruffin Hall: 38.039373, -78.503091
-Campbell Hall: 38.038848, -78.503492
-Stone Hall: 38.037051, -78.517936
-Shelburne Hall: 38.038141, -78.519267
-Alumni Hall: 38.038217, -78.508039
+Rice Hall, 38.031604, -78.510867
+Small Hall, 38.032116, -78.511306
+Olsson Hall, 38.032040, -78.510609
+Mechanical Engineering Building, 38.032649, -78.511124
+Thornton Hall, 38.033236, -78.509745
+Materials Science Building, 38.033194, -78.510931
+Chemical Engineering Research Building, 38.033452, -78.510759
+Wilsdorf Hall, 38.033325, -78.511226
+Chemistry Building, 38.033540, -78.511719
+Gilmer Hall, 38.034149, -78.512859
+Physics Building, 38.034179, -78.510215
+Astronomy Building, 38.035636, -78.515412
+Ruffner Hall, 38.034631, -78.509368
+Bavaro Hall, 38.034661, -78.508832
+Clark Hall, 38.032871, -78.508014
+Halsey Hall, 38.033002, -78.506989
+Kerchof Hall, 38.032334, -78.508164
+Maury Hall, 38.033354, -78.506826
+Minor Hall, 38.033747, -78.506539
+Bryan Hall, 38.033270, -78.505941
+Cocke Hall, 38.033509, -78.505176
+Garrett Hall, 38.034111, -78.505452
+Old Cabell Hall, 38.032761, -78.504904
+New Cabell Hall, 38.032541, -78.505019
+Nau Hall, 38.031734, -78.505048
+Gibson Hall, 38.031322, -78.505102
+Rouss and Robertson Hall, 38.032792, -78.503691
+Wilson Hall, 38.032439, -78.503949
+Randall Hall, 38.033291, -78.503311
+Levering Hall, 38.033623, -78.502978
+Monroe Hall, 38.034751, -78.506264
+Brooks Hall, 38.035770, -78.502108
+Cobb Hall, 38.032442, -78.503028
+Varsity Hall, 38.032976, -78.502921
+McKim Hall, 38.032681, -78.502003
+McLeod Hall, 38.030832, -78.501714
+Jordan Hall, 38.032119, -78.500351
+Fayerweather Hall, 38.037983, -78.503005
+Ruffin Hall, 38.039373, -78.503091
+Campbell Hall, 38.038848, -78.503492
+Stone Hall, 38.037051, -78.517936
+Shelburne Hall, 38.038141, -78.519267
+Alumni Hall, 38.038217, -78.508039
