@@ -108,8 +108,10 @@ def process_search(search_entry):
         else:  # individual result returned
             x = get_info(search_entry)
             data[x['name'].split('(')[0][:-1]] = x
-            # print x
-            return json.dumps(data, indent=4)
+            if not str(x['classification']) == ' Faculty': # Check if not faculty, return nothing
+                return json.dumps({}, indent=4)
+            else:
+                return json.dumps(data, indent=4)
     else:  # else there was error, none found, or too many entries
         # print None
         return json.dumps(data, indent=4)
