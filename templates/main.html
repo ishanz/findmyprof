@@ -79,13 +79,12 @@
                         addr_dict[key] = data[key]["address"];
                     }
                     for (var prof in addr_dict) {
-                        var address = addr_dict[prof]; 
+                        var address = addr_dict[prof];
+                        var altAddr = address || "No location";
                         for(var building in lookUpTable){
-                            if(lookUpTable.hasOwnProperty(building)) {
-                                var n = address.search(building);
-                                if (n != -1) {
-                                    coord_dict[prof] = lookUpTable[building];
-                                }
+                            var n = altAddr.search(building);
+                            if (n != -1) {
+                                coord_dict[prof] = lookUpTable[building];
                             }
                         }
                     }
