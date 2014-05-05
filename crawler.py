@@ -33,8 +33,8 @@ def get_links(faculty_list):
 def get_html(links):
     """Get html code for a faculty web page"""
     faculty_htmls = []
-    limit = 10;
-    if len(links) < 10:
+    limit = 50;
+    if len(links) < 50:
         limit = len(links)
     for i in range(0, limit):  # Only process first 5 because processing all is too long
         usock = urllib2.urlopen(links[i])
