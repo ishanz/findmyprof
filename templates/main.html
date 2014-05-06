@@ -10,7 +10,7 @@
 	  }
       body { height: 100%; margin: 0; padding: 0; }
 	  div#container {height: 100%; text-align: center; float:top;}
-	  div#title{ font-size:25px;}
+	  div#title{ font-size:25px; color: white; text-shadow: -1px -1px 0px black, 1px -1px 0px black, -1px 1px 0px black, 1px 1px 0px black;}
 	  input#professor { height:50px; width: 55%; font-size:25px; border:2px solid; border-radius:5px; }
       div#map-canvas { height: 65%; width: 50%; border:2px solid; border-radius:25px; margin-left:25%; margin-top:50px;}
       div#prof-list { font-family: "Helvetica"; font-size: 25px; margin-top: 30px; background: moccasin; border: 1px; border-radius: 10px;}
@@ -26,6 +26,7 @@
         /** maps code **/
       var map;
       var markers = [];
+      //var highlighted = "/highlighted_marker.png";
 
       function initialize() {
         var mapOptions = {
@@ -161,12 +162,34 @@
                 //console.log(coord_dict[prof][0] + " " + coord_dict[prof][1]);
 
                 setMarker(lat, lon, prof);
+                var highlightTitle = prof;
+                //alert(highlightTitle);
                 if(document.getElementById("prof-list").innerHTML.indexOf(prof) == -1)
-                    document.getElementById("prof-list").innerHTML += prof + "; " + addr_dict[prof] + "<br/>";
+                    document.getElementById("prof-list").innerHTML += "<div id=" +'"'+ prof +'"'+ " onclick='highlightMarker(id)'>" +
+                            prof + "; " + addr_dict[prof] +
+                            "<br/></div>";
 
             }
 
 
+        }
+
+        function highlightMarker(prof) {
+            //alert("test");
+            for (var i = 0; i < markers.length; i++) {
+                if(markers[i].title == prof){
+                    markers[i].setMap(null);
+                    //alert(markers[i].position);
+                    var image = 'highlighted_marker.png';
+                    var marker = new google.maps.Marker({
+			            position: markers[i].position,
+			            title: markers[i].title,
+			            map: map,
+                        icon: image
+		            });
+                    markers[i] = marker;
+                }
+            }
         }
 
 
