@@ -5,17 +5,15 @@
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
     <style type="text/css">
       html { height: 100%;
-	  background: url(http://bloximages.newyork1.vip.townnews.com/timesdispatch.com/content/tncms/assets/v3/editorial/7/30/7309fb3c-4b0e-53f3-89c9-63eb31d76268/50f87a4e1c6e5.image.jpg) no-repeat center center fixed;
-	  -webkit-background-size: cover;
-	  -moz-background-size: cover;
-	  -o-background-size: cover;
-	  background-size: cover;
+	  background: url(http://bloximages.newyork1.vip.townnews.com/timesdispatch.com/content/tncms/assets/v3/editorial/7/30/7309fb3c-4b0e-53f3-89c9-63eb31d76268/50f87a4e1c6e5.image.jpg);
+	  
 	  }
       body { height: 100%; margin: 0; padding: 0; }
 	  div#container {height: 100%; text-align: center; float:top;}
 	  div#title{ font-size:25px;}
 	  input#professor { height:50px; width: 55%; font-size:25px; border:2px solid; border-radius:5px; }
       div#map-canvas { height: 65%; width: 50%; border:2px solid; border-radius:25px; margin-left:25%; margin-top:50px;}
+      div#prof-list { font-family: "Helvetica"; font-size: 25px; margin-top: 30px; background: moccasin; border: 1px; border-radius: 10px;}
 
     </style>
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
@@ -69,22 +67,22 @@
         var coord_dict; //stores mapping of professor-->{x: lat, y: lon}
 
         var lookUpTable = {
-           "Rice Hall": [38.031604, -78.510867],
+           "Rice": [38.031604, -78.510867],
            "Small Hall": [38.032116, -78.511306],
-           "Olsson Hall": [38.032040, -78.510609],
-           "Mechanical Engineering Building": [38.032649, -78.511124],
-           "Thornton Hall": [38.033236, -78.509745],
-           "Materials Science": [38.033194, -78.510931],
-           "Chemical Engineering": [38.033452, -78.510759],
-           "Wilsdorf Hall": [38.033325, -78.511226],
+           "Olsson": [38.032040, -78.510609],
+           "Mech": [38.032649, -78.511124],
+           "Thornton": [38.033236, -78.509745],
+           "Materials": [38.033194, -78.510931],
+           "Chemical": [38.033452, -78.510759],
+           "Wilsdorf": [38.033325, -78.511226],
            "Chemistry": [38.033540, -78.511719],
-           "Gilmer Hall": [38.034149, -78.512859],
-           "Physics Building": [38.034179, -78.510215],
+           "Gilmer": [38.034149, -78.512859],
+           "Physics": [38.034179, -78.510215],
            "Astronomy": [38.035636, -78.515412],
-           "Ruffner Hall": [38.034631, -78.509368],
-           "Bavaro Hall": [38.034661, -78.508832],
-           "Clark Hall": [38.032871, -78.508014],
-           "Halsey Hall": [38.033002, -78.506989],
+           "Ruffner": [38.034631, -78.509368],
+           "Bavaro": [38.034661, -78.508832],
+           "Clark": [38.032871, -78.508014],
+           "Halsey": [38.033002, -78.506989],
            "Kerchof Hall": [38.032334, -78.508164],
            "Maury Hall": [38.033354, -78.506826],
            "Minor Hall": [38.033747, -78.506539],
@@ -96,7 +94,8 @@
            "Cabell Hall": [38.032541, -78.505019],
            "Nau Hall": [38.031734, -78.505048],
            "Gibson Hall": [38.031322, -78.505102],
-           "Rouss and Robertson Hall": [38.032792, -78.503691],
+           "Rouss": [38.032792, -78.503691],
+            "Robertson": [38.032792, -78.503691],
            "Wilson Hall": [38.032439, -78.503949],
            "Randall Hall": [38.033291, -78.503311],
            "Levering Hall": [38.033623, -78.502978],
@@ -128,6 +127,7 @@
         //fills up professor-->address dictionary (addr_dict)
 		function getString(str) {
             deleteMarkers();
+            document.getElementById("prof-list").innerHTML = "";
             prof = str; //for global storage of the user's input
             addr_dict = new Object();
             coord_dict = new Object();
@@ -161,6 +161,8 @@
                 //console.log(coord_dict[prof][0] + " " + coord_dict[prof][1]);
 
                 setMarker(lat, lon, prof);
+                if(document.getElementById("prof-list").innerHTML.indexOf(prof) == -1)
+                    document.getElementById("prof-list").innerHTML += prof + "; " + addr_dict[prof] + "<br/>";
 
             }
 
@@ -200,7 +202,13 @@
 
 		<div id="map-canvas"/>
 
+
+
 	</div>
+
+    <div id="prof-list">
+        <u>Professors</u> <br>
+     </div>
 
 
 </body>
