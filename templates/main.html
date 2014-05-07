@@ -165,7 +165,7 @@
                 var highlightTitle = prof;
                 //alert(highlightTitle);
                 if(document.getElementById("prof-list").innerHTML.indexOf(prof) == -1)
-                    document.getElementById("prof-list").innerHTML += "<div id=" +'"'+ prof +'"'+ " onclick='highlightMarker(id)'>" +
+                    document.getElementById("prof-list").innerHTML += "<div id=" +'"'+ prof +'"'+ " onmouseover='highlightMarker(id)' onmouseout='highlightMarker(null)'>" +
                             prof + "; " + addr_dict[prof] +
                             "<br/></div>";
 
@@ -175,19 +175,10 @@
         }
 
         function highlightMarker(prof) {
-            //alert("test");
             for (var i = 0; i < markers.length; i++) {
+                markers[i].setAnimation(null);
                 if(markers[i].title == prof){
-                    markers[i].setMap(null);
-                    //alert(markers[i].position);
-                    var image = 'highlighted_marker.png';
-                    var marker = new google.maps.Marker({
-			            position: markers[i].position,
-			            title: markers[i].title,
-			            map: map,
-                        icon: image
-		            });
-                    markers[i] = marker;
+                    markers[i].setAnimation(google.maps.Animation.BOUNCE);
                 }
             }
         }
